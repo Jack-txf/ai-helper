@@ -1,5 +1,9 @@
 package com.feng.aihelper.aihelper.config;
 
+import org.springframework.ai.zhipuai.ZhiPuAiChatModel;
+import org.springframework.ai.zhipuai.ZhiPuAiChatOptions;
+import org.springframework.ai.zhipuai.api.ZhiPuAiApi;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -20,7 +24,17 @@ public class ZhipuConfig {
         this.zhipuApikey = zhipuEnv;
     }
 
-    public String getZhipuApikey() {
-        return zhipuApikey;
+    @Bean(name = "myZhipu")
+    public ZhiPuAiChatModel zhiPuAiChatModel() {
+        ZhiPuAiApi aiApi = ZhiPuAiApi.builder()
+                .apiKey(zhipuApikey)
+                .build();
+        return new ZhiPuAiChatModel(
+                aiApi,
+                ZhiPuAiChatOptions.builder().model("glm-4.6v")
+                        .build()
+        );
     }
+
+
 }

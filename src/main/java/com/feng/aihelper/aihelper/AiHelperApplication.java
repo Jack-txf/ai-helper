@@ -15,10 +15,4 @@ public class AiHelperApplication {
     public static void main(String[] args) {
         SpringApplication.run(AiHelperApplication.class, args);
     }
-
-    @PostConstruct
-    public void init() {
-        System.out.println("智谱清言AI：" + zhipuConfig.getZhipuApikey());
-    }
-
 }

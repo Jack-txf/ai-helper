@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: ai-helper
-
+  ai:
+    zhipuai:
+      api-key: ${ZHIPU_ENV}
 
 

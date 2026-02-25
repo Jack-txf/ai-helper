@@ -5,6 +5,10 @@ target/
 
 out/
 
+## front 里面的有些东西要忽略掉 ##
+front/.vscode/
+front/node_modules/
+
 ### IntelliJ IDEA ###
 .idea/
 .idea/modules.xml

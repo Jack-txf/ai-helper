@@ -52,6 +52,7 @@ public class ZhipuController1 {
         return myZhipu.stream(message);
     }
 
+    // // message: 请你描述一下这个图片！
     @GetMapping(path = "/chatMultimodality", produces = "text/event-stream;charset=UTF-8")
     public Flux<String> chatMultimodality(@RequestParam("message") String message) {
         var resource = new ClassPathResource("/cqupt.png");

@@ -21,7 +21,7 @@ public class BookQueryTool {
     @Resource
     private BookMapper bookMapper;
 
-    @Tool(description = "The book inquiry tool returns the total number of books currently in the database " +
+    @Tool( name= "queryBookCount", description = "The book inquiry tool returns the total number of books currently in the database " +
             "or the total number of book titles currently being sold")
     public String queryBookCount() {
         // 模拟图书查询逻辑
@@ -31,7 +31,7 @@ public class BookQueryTool {
     }
 
     // 工具 2：根据作者查找（新增）
-    @Tool(description = "根据作者姓名查找该作者编写的所有图书列表")
+    @Tool(name = "findBooksByAuthor", description = "根据作者姓名查找该作者编写的所有图书列表")
     public String findBooksByAuthor(@ToolParam(description = "作者姓名") String authorName) {
         System.out.println("findBooksByAuthor Tool calling, author: " + authorName);
         QueryWrapper<Book> queryWrapper = new QueryWrapper<>();

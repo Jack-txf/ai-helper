@@ -1,5 +1,6 @@
 package com.feng.aihelper.aihelper.config;
 
+import com.feng.aihelper.aihelper.rag.VectorStoreConfig;
 import com.feng.aihelper.aihelper.tools.BookQueryTool;
 import jakarta.annotation.Resource;
 import org.springframework.ai.chat.client.ChatClient;
@@ -57,6 +58,8 @@ public class ZhipuConfig {
                 // 关键点 1：注册工具回调，ChatClient 会自动处理函数执行过程
                 .defaultTools(bookQueryTool)
                 .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
+                .defaultSystem("你是一个资深的软件工程师。请优先参考提供的文档片段回答问题。" +
+                        "如果文档中没有相关信息，请明确告知，并尝试基于你的通用知识给出简短建议。最后不要忘记了图书相关的问题可以尝试调用工具试一下。")
                 .build();
     }
 

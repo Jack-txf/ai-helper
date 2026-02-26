@@ -71,7 +71,7 @@ const callAssistantStream = async (content) => {
   const assistantIndex = conv.messages.length - 1
 
   try {
-    const url = `${API_BASE_URL}/zhipu1/chat2Stream?message=${encodeURIComponent(
+    const url = `${API_BASE_URL}/zhipu1/chatMemory?sessionId=123&message=${encodeURIComponent(
       content
     )}`
 
